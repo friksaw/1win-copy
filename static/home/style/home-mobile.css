@@ -875,6 +875,10 @@ body {
     will-change: scroll-position;
 }
 
+.swiper-slide-img {
+    width: 100vw;
+}
+
 .slider-item-img-title {
     font-weight: 900;
     font-family: -apple-system, "SF Pro Text", Arial, sans-serif;
