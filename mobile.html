@@ -20,6 +20,63 @@
                 }
             ]
         }</script>
+    <script type="text/javascript">var CONFIG_GLOBAL = {
+        'CDN': 'https:\/\/cdn.static-vlc.com\/',
+        'isAuth': false,
+        'uid': 0,
+        'minFlashPlayerVersion': '14.0.0',
+        'isFun': 0,
+        'staticDir': 'v3',
+        'templatesPath': '\/files\/v3\/templates\/',
+        'defaultTemplatesPath': '\/files\/default\/templates\/',
+        'socialAuthDomain': 'https:\/\/slotoauth.com\/',
+        'fileCache': 20210825122126,
+        'isMobile': false,
+        'isTablet': false,
+        'isHtml5': false,
+        'funds': {'formats': {'USD': '%s%F,%D', 'RUB': '%F,%D %s'}, 'symbols': {'USD': '$', 'RUB': '\u20bd'}},
+        'userCurrency': {'code': 'RUB', 'rate': 73.7428},
+        'highLowScripts': {
+            'pako': 'https:\/\/cdn.static-vlc.com\/files\/html5\/high_low_v2\/lib\/pako.min.js',
+            'howler': 'https:\/\/cdn.static-vlc.com\/files\/html5\/high_low_v2\/lib\/howler.min.js',
+            'game': 'https:\/\/cdn.static-vlc.com\/files\/html5\/high_low_v2\/game.js'
+        },
+        'highLowFolder': 'files\/html5\/high_low_v2'
+    };
+
+    function checkWidth() {
+        if (window.matchMedia('(max-width: 1024px)').matches) {
+            CONFIG_GLOBAL.isMobile = true;
+        } else {
+            CONFIG_GLOBAL.isMobile = false;
+        }
+
+        // Если isMobile равен true, делаем редирект
+        if (CONFIG_GLOBAL.isMobile) {
+            // Загружаем мобильный HTML-код
+            fetch('/mobile.html')
+                .then(response => response.text())
+                .then(html => {
+                    // Заменяем содержимое body на мобильный HTML
+                    document.body.innerHTML = html;
+                })
+        } else {
+            fetch('/index.html')
+                .then(response => response.text())
+                .then(html => {
+                    // Заменяем текущий контент на мобильный HTML
+                    document.body.innerHTML = html;
+                })
+        }
+    }
+
+    // Вызываем checkWidth при загрузке
+    window.onload = checkWidth;
+
+    // Вызываем checkWidth при изменении размера окна
+    window.addEventListener('resize', checkWidth);
+
+    </script>
     <meta charset="UTF-8" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/home/style/home-mobile.css">
     <meta name="og:description" property="og:description" content="В букмекерской конторе 1 Вин ставки на спорт с привлекательными множителями. Freebet, легкая процедура регистрации, программа мотивации, широкая роспись событий и щедрые 1 Win ставки на спорт">
