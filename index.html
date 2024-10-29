@@ -72,7 +72,7 @@
         // Если isMobile равен true, делаем редирект
         if (CONFIG_GLOBAL.isMobile) {
             // Загружаем мобильный HTML-код
-            fetch('1win-copy/mobile.html')
+            fetch('/1win-copy/mobile.html')
                 .then(response => response.text())
                 .then(html => {
                     // Заменяем содержимое body на мобильный HTML
@@ -80,7 +80,6 @@
                 })
         }
     }
-
     // Вызываем checkWidth при загрузке
     window.onload = checkWidth;
 
