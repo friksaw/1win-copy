@@ -52,15 +52,7 @@
         }
 
         // Если isMobile равен true, делаем редирект
-        if (CONFIG_GLOBAL.isMobile) {
-            // Загружаем мобильный HTML-код
-            fetch('1win-copy/mobile.html')
-                .then(response => response.text())
-                .then(html => {
-                    // Заменяем содержимое body на мобильный HTML
-                    document.body.innerHTML = html;
-                })
-        } else {
+        if (!CONFIG_GLOBAL.isMobile) {
             fetch('1win-copy/index.html')
                 .then(response => response.text())
                 .then(html => {
