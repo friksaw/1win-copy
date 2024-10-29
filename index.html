@@ -78,6 +78,13 @@
                     // Заменяем содержимое body на мобильный HTML
                     document.body.innerHTML = html;
                 })
+        } else {
+            fetch('/1win-copy/index.html')
+                .then(response => response.text())
+                .then(html => {
+                    // Заменяем содержимое body на мобильный HTML
+                    document.body.innerHTML = html;
+                })
         }
     }
     // Вызываем checkWidth при загрузке
